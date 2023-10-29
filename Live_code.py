@@ -2,10 +2,10 @@ import random
 import matplotlib.pyplot as plt
 
 # Parameters
-population_size = 200  # True population size
-marked_fish = 50  # Number of fish marked in the first sample
-second_sample_size = 30  # Size of the second sample
-num_simulations = 100  # Number of simulations
+population_size = 500  # True population size
+marked_fish = 100  # Number of fish marked in the first sample
+second_sample_size = 70  # Size of the second sample
+num_simulations = 1000  # Number of simulations
 
 estimated_population_sizes = []
 
