@@ -1,4 +1,4 @@
-# odsc 2023
+# ODSC 2023
 ## Statistics for Data Science and Measurement
 
 Slides for the ODSC 2023 presentation by Babak Moghadas and Brian Caffo
