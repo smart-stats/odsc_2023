@@ -32,3 +32,38 @@ plt.ylabel('Frequency')
 plt.legend()
 plt.title('Capture-Recapture Population Estimation')
 display(plt)
+
+
+
+
+
+
+#### The ICC example
+
+import os
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import statsmodels.formula.api as smf
+from pyodide.http import open_url
+
+os.chdir('/home')
+visit1=pd.read_csv(open_url("https://raw.githubusercontent.com/smart-stats/odsc_2023/main/assets/visit1_mricloud.csv"))
+visit2=pd.read_csv(open_url("https://raw.githubusercontent.com/smart-stats/odsc_2023/main/assets/visit2_mricloud.csv"))
+
+csf1 = visit1[(visit1['Type'] == 1) & (visit1['Level'] == 1) 
+              & (visit1['Object'] == 'CSF')]['Volume']
+csf2 = visit2[(visit2['Type'] == 1) & (visit2['Level'] == 1) 
+              & (visit2['Object'] == 'CSF')]['Volume']
+plt.scatter(csf1, csf2);
+display(plt)
+
+csfdf1 = visit1[(visit1['Type'] == 1) & (visit1['Level'] == 1) 
+                & (visit1['Object'] == 'CSF')]
+csfdf2 = visit2[(visit2['Type'] == 1) & (visit2['Level'] == 1) 
+                & (visit2['Object'] == 'CSF')]
+
+csfdf = pd.concat( [csfdf1, csfdf2] )
+csfdf['logvolume'] = np.log(csfdf['Volume'])
+md = smf.mixedlm("logvolume ~ 1", csfdf, groups=csfdf["ID"]).fit()
+print("The summary is:\n",md.summary())

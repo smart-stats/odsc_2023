@@ -15260,7 +15260,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h3 id="Binary-outcomes-(two-class-classification)">Binary outcomes (two-class classification)<a class="anchor-link" href="#Binary-outcomes-(two-class-classification)">¶</a></h3><p>Consider the following definitions for the results of a diagnostic test $X\in \{0,1\}$, where the
+<h3 id="Binary-outcomes-(two-class-classification)">Binary outcomes (two-class classification)<a class="anchor-link" href="#Binary-outcomes-(two-class-classification)">¶</a></h3><p>Consider the following definitions for the results of a diagnostic test $\hat Y\in \{0,1\}$, where the
 actual disease state is $Y\in \{0,1\}$. Assume 1 represents having/testing for the disease.</p>
 </div>
 </div>
@@ -15274,14 +15274,14 @@ actual disease state is $Y\in \{0,1\}$. Assume 1 represents having/testing for t
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h4 id="Measures-conditional-on-disease-status:">Measures conditional on disease status:<a class="anchor-link" href="#Measures-conditional-on-disease-status:">¶</a></h4><ol>
 <li><strong>Sensitivity</strong> $P(\hat Y =1 ~|~ Y=1)$, probability that the prediction is positive given the disease is present.<ul>
-<li>Also called the true positive rate. $P(\hat Y =0 ~|~ Y=1)$</li>
-<li>One minus the sensitivity is the false negative or miss rate.</li>
+<li>Also called the true positive rate.</li>
+<li>$P(\hat Y =0 ~|~ Y=1)$, one minus the sensitivity is the false negative or miss rate.</li>
 <li>Also called recall and hit rate</li>
 </ul>
 </li>
 <li><strong>Specificity</strong> $P(\hat Y=0 ~|~ Y=0)$, probability that the prediction is negative given the disease is absent.<ul>
-<li>Also called the true negative rate. $P(\hat Y=1~|~ Y=0)$</li>
-<li>One minus the specificity is the false negative rate or fall out.</li>
+<li>Also called the true negative rate.</li>
+<li>$P(\hat Y=1~|~ Y=0)$, one minus the specificity is the false negative rate or fall out.</li>
 <li>Also called selectivity.</li>
 </ul>
 </li>
@@ -15405,7 +15405,7 @@ $$
 P(Y = 1 ~|~ \hat Y = 1) = \frac{P(\hat Y=1~|~ Y = 1)P(Y=1)}{P(\hat Y=1)} 
 $$<p>and</p>
 $$ P(Y=0 ~|~ \hat Y=1) = \frac{P(\hat Y=1 ~|~ Y=0)P(Y=0)}{P(\hat Y=1)}. $$$$ 
-\frac{P(Y = 0 ~|~ \hat Y=1)}{P(Y=1 ~|~ \hat Y=1)} = \frac{P(X = 1 ~|~ Y=1)}{P(\hat Y = 1 ~|~ Y=0)}\times \frac{P(Y=1)}{P(Y=0)} 
+\frac{P(Y = 1 ~|~ \hat Y=1)}{P(Y=0 ~|~ \hat Y=1)} = \frac{P(\hat Y = 1 ~|~ Y=1)}{P(\hat Y = 1 ~|~ Y=0)}\times \frac{P(Y=1)}{P(Y=0)} 
 $$
 </div>
 </div>
@@ -15451,7 +15451,7 @@ $$
 <li>Suppose instead that a subject has a negative test result.</li>
 <li>Then $DLR_- = (1 - .997) / .985 =.003$</li>
 <li>Therefore, the post-test odds of disease is now 0.3% of the pretest odds given the negative test.</li>
-<li>Or, the hypothesis of disease is supported $$.003$ times that of the hypothesis of absence of disease given the negative test result</li>
+<li>Or, the hypothesis of disease is supported $.003$ times that of the hypothesis of absence of disease given the negative test result</li>
 </ul>
 </div>
 </div>
@@ -15850,7 +15850,7 @@ $$P(X_1 &gt; X_0) = P(X_0 - X_1 &lt; 0)$$
   script.id="u_user"
   newWindow.document.body.appendChild(script);
   var initial_text2 = '<py-config class="pyscript_env" style="display: none;">\n' +
-                       'packages = ["numpy", "matplotlib","scikit-learn","pandas","seaborn"]\n' +
+                       'packages = ["numpy", "matplotlib","scikit-learn","pandas","seaborn","statsmodels"]\n' +
                        'terminal = false</py-config>'
   var user_script2= '<py-script output="compiled_results">\n' +
                     'from js import user_script\n' +
